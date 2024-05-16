@@ -3,57 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>iShop - Apple Products</title>
-  <link rel="stylesheet" href="style.css"> </head>
+  <title>Visit Counter</title>
+  <script>
+    function getVisitCount() {
+      fetch('count_visit.php')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('visitCount').textContent = data;
+        })
+        .catch(error => {
+          console.error('Error fetching visit count:', error);
+        });
+    }
+
+    window.onload = getVisitCount;
+  </script>
+</head>
 <body>
-  <header class="header">
-    <img src="apple-logo.png" alt="Apple Logo">
-    <h1>iShop - Your Authorized Apple Reseller</h1>
-  </header>
-
-  <nav class="navigation">
-    <ul>
-      <li><a href="#">Mac</a></li>
-      <li><a href="#">iPhone</a></li>
-      <li><a href="#">iPad</a></li>
-      <li><a href="#">Watch</a></li>
-      <li><a href="#">Accessories</a></li>
-    </ul>
-  </nav>
-
-  <main class="main-content">
-    <section class="hero">
-      <h2>Welcome to the future of technology.</h2>
-      <p>Explore the latest Apple products designed to empower your creativity and productivity.</p>
-      <a href="#" class="shop-now-btn">Shop Now</a>
-    </section>
-
-    <section class="featured-products">
-      <h2>Featured Products</h2>
-      <div class="product-card">
-        <img src="iphone-latest.jpg" alt="Latest iPhone">
-        <h3>iPhone 15</h3>
-        <p>The most powerful iPhone yet, with a revolutionary camera system.</p>
-        <a href="#" class="product-link">Learn More</a>
-      </div>
-      <div class="product-card">
-        <img src="macbook-pro.jpg" alt="Latest MacBook Pro">
-        <h3>MacBook Pro</h3>
-        <p>Supercharged performance for pro users. Unleash your creativity.</p>
-        <a href="#" class="product-link">Learn More</a>
-      </div>
-      <div class="product-card">
-        <img src="ipad-air.jpg" alt="Latest iPad Air">
-        <h3>iPad Air</h3>
-        <p>Your versatile companion for work, play, and everything in between.</p>
-        <a href="#" class="product-link">Learn More</a>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <p>&copy; 2024 iShop. All Rights Reserved.</p>
-  </footer>
-
+  <h1>Visit Counter</h1>
+  <p>This page has been visited <span id="visitCount"></span> times.</p>
 </body>
 </html>
